@@ -31,7 +31,7 @@ public class Main {
         }
     }
         //может прибить решение гвоздями через массив и сравнение с символами?
-
+        //а может и не надо?
     static int numJewelsInStone(String jewels, String stone) {
 
         Matcher pattern1 = Pattern.compile("a+").matcher(jewels);
