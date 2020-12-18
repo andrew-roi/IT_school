@@ -23,24 +23,22 @@ public class Main {
 
             } else {
 
-                System.out.println("No others symbols");
+                System.out.println("No others symbols should be entered");
             }
 
         } catch (IllegalArgumentException iae) {
             System.out.println("You should enter only literals. No others symbols");
         }
     }
-
+        //может прибить решение гвоздями через массив и сравнение с символами?
 
     static int numJewelsInStone(String jewels, String stone) {
 
-        Pattern pattern1 = Pattern.compile("\\A a+(.*.*) a+ \\z");
-        Matcher matcher1 = pattern1.matcher(jewels);
-        boolean result = matcher1.matches();
-        if (matcher1.find()) {
+        Matcher pattern1 = Pattern.compile("a+").matcher(jewels);
 
-            System.out.println(stone.substring(matcher1.start()));
-            return stone.substring(matcher1.start()).length();
+        if (pattern1.find()) {
+            String str = stone.substring(pattern1.start(), pattern1.end());
+            return str.length();
         } else return 0;
 
 
