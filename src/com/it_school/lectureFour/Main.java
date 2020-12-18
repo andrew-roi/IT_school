@@ -30,14 +30,13 @@ public class Main {
             System.out.println("You should enter only literals. No others symbols");
         }
     }
-        //может прибить решение гвоздями через массив и сравнение с символами?
-        //а может и не надо?
+
     static int numJewelsInStone(String jewels, String stone) {
 
         Matcher pattern1 = Pattern.compile("a+").matcher(jewels);
 
         if (pattern1.find()) {
-            String str = stone.substring(pattern1.start(), pattern1.end());
+            String str = stone.substring(pattern1.start(), pattern1.end()+1);
             return str.length();
         } else return 0;
 
