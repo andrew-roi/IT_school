@@ -37,7 +37,7 @@ public class Main {
         Matcher pattern1 = Pattern.compile("a+").matcher(jewels);
 
         if (pattern1.find()) {
-            String str = stone.substring(pattern1.start(), pattern1.end());// как это работает?
+            String str = stone.substring(pattern1.start(), pattern1.end());
             return str.length();
         } else return 0;
 
