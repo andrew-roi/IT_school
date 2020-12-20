@@ -37,6 +37,7 @@ public class Main {
         sortArray(array1);
     }
 //add some code
+    //additional code
     static int numJewelsInStone(String jewels, String stone) {
 
         Matcher pattern1 = Pattern.compile(jewels).matcher(stone);
