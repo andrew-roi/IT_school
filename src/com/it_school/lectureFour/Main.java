@@ -55,7 +55,7 @@ public class Main {
     public static void squareArraysValues(int[] array) {
 
         for (int i = 0; i < array.length; i++) {
-            array[i] = abs((array[i] * array[i]));
+            array[i] = (array[i] * array[i]);
         }
 
         System.out.println(Arrays.toString(array));
