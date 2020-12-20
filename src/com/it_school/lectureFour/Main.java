@@ -22,7 +22,7 @@ public class Main {
             Matcher matcher = pattern.matcher(jewels);
             Matcher matcher1 = pattern.matcher(stone);
             if (matcher.matches() && matcher1.matches()) {
-                System.out.println(numJewelsInStone(jewels, stone));
+                System.out.println(numJewelsInStones(jewels, stone));
 
             } else {
 
@@ -37,17 +37,19 @@ public class Main {
         sortArray(array1);
     }
 
-    static int numJewelsInStone(String jewels, String stone) {
-
-        Matcher pattern1 = Pattern.compile(jewels).matcher(stone);
-
-        StringBuilder str = new StringBuilder();
-        while (pattern1.find()) {
-
-            str.append(stone, pattern1.start(), (pattern1.end()));
+    public static int numJewelsInStones(String jewels, String stones) {
+        char[] jewelsTemp = jewels.toCharArray();
+        int calcGems = 0;
+        char[] stone = stones.toCharArray();
+        for (char j : stone) {
+            String temp = String.valueOf(j);
+            for (char ch : jewelsTemp ) {
+                if (temp.contains(Character.toString(ch))){
+                    calcGems++;
+                }
+            }
         }
-        return str.length();
-
+        return calcGems;
     }
 
     public static void squareArraysValues(int[] array) {
