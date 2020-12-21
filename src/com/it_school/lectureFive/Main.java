@@ -5,10 +5,28 @@ package com.it_school.lectureFive;
 public class Main {
 
     public static void main(String[] args) {
+        //create objects of class bottle and liquid
+        Liquid l1 = new Liquid("green", 4.4, true);
+        Liquid l2 = new Liquid("yellow", 1.0, false);
 
 
+        Bottle b1 = new Bottle(1,l1);
+        Bottle b2 = new Bottle(1.5,l2);
+        Bottle b3 = new Bottle(1,l1);
+        //set liquid in bottle
+        b1.setLiquid(l1);
+        b2.setLiquid(l2);
+        b3.setLiquid(l1);
+
+
+
+        //comparing objects
+        System.out.println(b1.equals(b2));
+        System.out.println(b3.equals(b1));
+        System.out.println(b2.equals(b3));
 
         System.out.println("==============================");
+
         System.out.println(middleFromTheString("HelloWorld"));
         System.out.println(invertRegister("I like Java"));
         System.out.println(swapHalfString("kozak"));
