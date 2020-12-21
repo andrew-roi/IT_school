@@ -5,4 +5,12 @@ public class Calculator {
         return a + b;
     }
 
+    public int plus(int[] array){
+        int sum = 0;
+        for (int i:array
+             ) {
+            sum +=array[i];
+        }
+        return sum;
+    }
 }
