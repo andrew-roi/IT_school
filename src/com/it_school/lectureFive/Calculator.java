@@ -13,4 +13,7 @@ public class Calculator {
         }
         return sum;
     }
+    public double multiply(double a, double b) {
+        return a * b;
+    }
 }
