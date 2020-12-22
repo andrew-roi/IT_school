@@ -1,4 +1,4 @@
-package com.it_school.lectureOne;
+package com.it_school.lecture01;
 
 /**
  * Напечатать числа от 30 до 0 с использованием for И while И do-while (3 цикла). Если число кратно 3, то не выводить его

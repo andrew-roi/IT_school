@@ -1,4 +1,4 @@
-package com.it_school.lectureOne;
+package com.it_school.lecture01;
 
 /**
  * Написать метод, который принимает массив String и возвращает String,

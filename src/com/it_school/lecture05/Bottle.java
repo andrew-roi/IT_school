@@ -1,4 +1,4 @@
-package com.it_school.lectureFive;
+package com.it_school.lecture05;
 
 public class Bottle {
     private final double capacity;

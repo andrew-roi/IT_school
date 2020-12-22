@@ -1,4 +1,4 @@
-package com.it_school.lectureTwo;
+package com.it_school.lecture02;
 
 public class PassengerElevator extends AbstractElevator implements Elevator {
 

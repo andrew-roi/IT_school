@@ -1,4 +1,4 @@
-package com.it_school.lectureTwo;
+package com.it_school.lecture02;
 
 /**
  * Написать иерархию классов, во главе которой находится интерфейс Elevator (лифт). Необходимые реализации:

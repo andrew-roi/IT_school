@@ -1,4 +1,4 @@
-package com.it_school.lectureFive;
+package com.it_school.lecture05;
 
 public class Liquid {
     private final String color;
