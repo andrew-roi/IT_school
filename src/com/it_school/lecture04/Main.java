@@ -51,7 +51,7 @@ public class Main {
         }
         return calcGems;
     }
-
+        //some code
     public static void squareArraysValues(int[] array) {
 
         for (int i = 0; i < array.length; i++) {
