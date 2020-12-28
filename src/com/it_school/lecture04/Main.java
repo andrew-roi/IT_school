@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.lang.Math.abs;
 
 public class Main {
     public static void main(String[] args) throws IOException {
