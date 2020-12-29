@@ -18,3 +18,4 @@ public class Calculator {
         return a * b;
     }
 }
+//resolved merge conflict
