@@ -35,7 +35,9 @@ public class Main {
         squareArraysValues(array1);
         sortArray(array1);
     }
-
+        //some code
+        //additional code
+        // once more
     public static int numJewelsInStones(String jewels, String stones) {
         char[] jewelsTemp = jewels.toCharArray();
         int calcGems = 0;
@@ -51,7 +53,6 @@ public class Main {
         return calcGems;
     }
         //some code
-        //additional code
     public static void squareArraysValues(int[] array) {
 
         for (int i = 0; i < array.length; i++) {
