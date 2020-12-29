@@ -35,7 +35,7 @@ public class Main {
         squareArraysValues(array1);
         sortArray(array1);
     }
-        //some code
+
 
 
     public static int numJewelsInStones(String jewels, String stones) {
