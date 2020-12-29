@@ -36,8 +36,8 @@ public class Main {
         sortArray(array1);
     }
         //some code
-        //additional code
-        // once more
+
+
     public static int numJewelsInStones(String jewels, String stones) {
         char[] jewelsTemp = jewels.toCharArray();
         int calcGems = 0;
