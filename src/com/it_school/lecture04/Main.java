@@ -38,7 +38,7 @@ public class Main {
         //some code
         //additional code
         // once more
-        //bla bla
+
     public static int numJewelsInStones(String jewels, String stones) {
         char[] jewelsTemp = jewels.toCharArray();
         int calcGems = 0;
