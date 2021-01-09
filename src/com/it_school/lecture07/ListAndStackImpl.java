@@ -81,7 +81,7 @@ public class ListAndStackImpl implements IntList, IntStack {
         for (int i = 0; i < values.length; i++) {
             if (values[i] == value) {
                 values[i] = 0;
-                break;
+
             }
         }
     }
