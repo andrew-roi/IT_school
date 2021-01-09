@@ -3,29 +3,28 @@ package com.it_school.lecture07;
 
 public class ListAndStackImpl implements IntList, IntStack {
     private int topIndex = -1; // helps to understand how many elements in the Stack
-    private final int[] values = new int[10]; // default array with capacity 20 for Stack implementation
+    private final int[] values = new int[10]; // default array with capacity 10 for Stack and List implementation
 
 
-    private final int[] array = new int[10]; // default array with capacity 20 for List implementation
     int nextIndex = 0; // increments while add or remove element
 
     @Override
     public void add(int i) {
-        array[nextIndex] = i;
+        values[nextIndex] = i;
         nextIndex++;
     }
 
     @Override
     public void insert(int index, int value) {
         nextIndex = index;
-        array[nextIndex] = value;
+        values[nextIndex] = value;
     }
 
     @Override
     public void set(int index, int value) throws ArrayIndexOutOfBoundsException, IllegalArgumentException {
         try {
             nextIndex = index;
-            array[nextIndex] = value;
+            values[nextIndex] = value;
         } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
             System.out.println("Not such index in the array");
         } catch (IllegalArgumentException illegalArgumentException) {
@@ -40,17 +39,17 @@ public class ListAndStackImpl implements IntList, IntStack {
 
     @Override
     public int capacity() {
-        return array.length;
+        return values.length;
     }
 
     @Override
     public int getByIndex(int index) throws ArrayIndexOutOfBoundsException, IllegalArgumentException {
         try {
-            return array[index];
-        } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+            return values[index];
+        } catch (ArrayIndexOutOfBoundsException boundsException) {
             System.out.print("No such index in array: ");
             return -1;
-        } catch (IllegalArgumentException illegalArgumentException) {
+        } catch (IllegalArgumentException illegalException) {
             System.out.println("Not a number: ");
             return -1;
         }
@@ -58,8 +57,8 @@ public class ListAndStackImpl implements IntList, IntStack {
 
     @Override
     public Integer getIndexByValue(int value) {
-        for (int i = 0; i < array.length; i++) {
-            if (value == array[i]) {
+        for (int i = 0; i < values.length; i++) {
+            if (value == values[i]) {
                 return i;
             }
         }
@@ -68,7 +67,7 @@ public class ListAndStackImpl implements IntList, IntStack {
 
     @Override
     public boolean contains(int value) {
-        for (int j : array) {
+        for (int j : values) {
             if (j == value) {
                 return true;
             }
@@ -79,19 +78,20 @@ public class ListAndStackImpl implements IntList, IntStack {
 
     @Override
     public void removeValue(int value) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) {
-                array[i] = 0;
+        for (int i = 0; i < values.length; i++) {
+            if (values[i] == value) {
+                values[i] = 0;
+                break;
             }
         }
     }
 
     @Override
     public void removeByIndex(int index) {
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < values.length; i++) {
             if (i == index) {
-                array[i] = 0;
-
+                values[i] = 0;
+                break;
             }
 
         }
@@ -101,15 +101,15 @@ public class ListAndStackImpl implements IntList, IntStack {
     public IntList subList(int fromIndex, int toIndex) {
         IntList intList = new ListAndStackImpl();
         for (int i = fromIndex; i < toIndex; i++) {
-            intList.add(array[i]);
+            intList.add(values[i]);
         }
         return intList;
     }
 
     @Override
     public int[] toArray() {
-        int[] arr;
-        arr = array;
+        int[] arr = new int[10];
+        System.arraycopy(values, 0, arr, 0, values.length);
         return arr;
     }
 
