@@ -1,22 +1,45 @@
 package com.it_school.lecture09;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class Main {
-    public static void main(String[] args) {
-         changeKeyWithValuesInMap();
-        try {
-            System.out.println("Enter something ");
-            System.out.println(printMap());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws IOException {
+        changeKeyWithValuesInMap();
+        Map<String, Integer> firstMap = new HashMap<>();
+        Map<String, Integer> secondMap = new HashMap<>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int numb = 1;
 
+        //read strings from terminal
+        try {
+            while (numb <= 10) {
+                System.out.println("Введите строку: ");
+                String key = reader.readLine();
+                if (!firstMap.containsKey(key)) {
+                    firstMap.put(key, 1);
+                } else {
+                    int count = firstMap.get(key);
+                    count++;
+                    firstMap.put(key, count);
+
+                }
+                numb++;
+            }
+            System.out.println(firstMap);
+            countOfRepeats(firstMap, secondMap);
+
+            //if something gonna wrong throwing an exception
+        } catch (Exception ex) {
+            System.err.println("Exception!");
+
+        }
     }
 
     public static void changeKeyWithValuesInMap() {
@@ -35,38 +58,27 @@ public class Main {
         HashMap<Integer, String> rev = new HashMap<>();
         for (Map.Entry<String, Integer> entry : map.entrySet())
             rev.put(entry.getValue(), entry.getKey());
-
+        System.out.println(map);
         System.out.println(rev);
     }
 
-    public static String printMap() throws IOException {
-        Map<String, Integer> map1 = new HashMap<>(5);
-        int i = 1;
-        String s = "";
-        int index = 0;
+    public static void countOfRepeats(Map<String, Integer> map1, Map<String, Integer> map2) {
 
-        try {
-            while (index <= map1.size()) {
-                s = readStringFromTerminal();
-                map1.put(s, i);
-                ++index;
-            }
-            if (map1.containsKey(s)) {
-                ++i;
-            } else return " No matches";
-
-        } catch (IllegalArgumentException iae) {
-            System.err.println("123");
-        } catch (NullPointerException nullPointerException) {
-            System.err.println("321");
+        if (map2.size() == 2) {
+            System.out.println(map2);
+            return;
         }
-
-        return s + " " + i;
+        int maxValue = Collections.max(map1.values());
+        String[] keys = map1.keySet().toArray(new String[0]);
+        for (int i = 0; i < map1.size(); i++) {
+            if (map1.get(keys[i]) == maxValue) {
+                map2.put(keys[i], maxValue);
+                map1.remove(keys[i]);
+                countOfRepeats(map1, map2);
+            }
+        }
     }
 
-    public static String readStringFromTerminal() throws IOException {
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        return reader.readLine();
-    }
 }
+
 
