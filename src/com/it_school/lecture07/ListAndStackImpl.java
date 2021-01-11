@@ -116,8 +116,7 @@ public class ListAndStackImpl implements IntList, IntStack {
 
     @Override
     public void push(int value) {
-        topIndex++;
-        values[topIndex] = value;
+        add(value);
     }
 
     @Override
