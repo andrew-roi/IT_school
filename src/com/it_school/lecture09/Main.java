@@ -4,9 +4,7 @@ package com.it_school.lecture09;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 
 public class Main {
@@ -19,7 +17,7 @@ public class Main {
 
         //read strings from terminal
         try {
-            while (numb <= 10) {
+            while (numb <= 5) {
                 System.out.println("Введите строку: ");
                 String key = reader.readLine();
                 if (!firstMap.containsKey(key)) {
@@ -38,6 +36,7 @@ public class Main {
             //if something gonna wrong throwing an exception
         } catch (Exception ex) {
             System.err.println("Exception!");
+            ex.printStackTrace();
 
         }
     }
@@ -77,6 +76,7 @@ public class Main {
                 countOfRepeats(map1, map2);
             }
         }
+
     }
 
 }
