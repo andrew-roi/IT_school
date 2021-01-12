@@ -16,7 +16,7 @@ public class Main {
         System.out.println(e1.compareTo(e2));
 
         System.out.println("==================");
-        ArrayList <Employee> employees = new ArrayList<>();
+        ArrayList<Employee> employees = new ArrayList<>();
         employees.add(e1);
         employees.add(e2);
         employees.add(e3);
@@ -28,14 +28,14 @@ public class Main {
         System.out.println(e2.compare(e2, e4));//true, equals
         System.out.println(e2.compare(e2, e5));//false
         Collections.sort(employees);
-        for (Employee employee :employees){
-            System.out.println(employee.getName() + " " +  employee.getEmployeeId() + " " + employee.getSalary());
+        for (Employee employee : employees) {
+            System.out.println(employee.getName() + " " + employee.getEmployeeId() + " " + employee.getSalary());
         }
         employees.sort(Employee::compareTo);
         System.out.println("=========");
 
-        for (Employee employee :employees){
-            System.out.println(employee.getName() + " " +  employee.getEmployeeId() + " " + employee.getSalary());
+        for (Employee employee : employees) {
+            System.out.println(employee.getName() + " " + employee.getEmployeeId() + " " + employee.getSalary());
         }
 
 
@@ -56,7 +56,7 @@ public class Main {
             sum += t.doubleValue();
         }
 
-        return  sum;
+        return sum;
     }
 
 
