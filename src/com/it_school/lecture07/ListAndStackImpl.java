@@ -2,10 +2,7 @@ package com.it_school.lecture07;
 
 
 public class ListAndStackImpl implements IntList, IntStack {
-    private int topIndex = -1; // helps to understand how many elements in the Stack
     private final int[] values = new int[10]; // default array with capacity 10 for Stack and List implementation
-
-
     int nextIndex = 0; // increments while add or remove element
 
     @Override
@@ -121,12 +118,12 @@ public class ListAndStackImpl implements IntList, IntStack {
 
     @Override
     public int pop() {
-        topIndex--;
-        return values[topIndex];
+        nextIndex--;
+        return values[nextIndex];
     }
 
     @Override
     public int peek() {
-        return values[topIndex];
+        return values[nextIndex];
     }
 }
