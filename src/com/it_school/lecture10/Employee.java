@@ -1,7 +1,7 @@
 package com.it_school.lecture10;
 
 
-public class Employee extends Comparator implements Comparable<Employee> {
+public class Employee implements Comparable<Employee> {
     private static int classCounterID;
     private int id;
     private double salary;
@@ -63,8 +63,6 @@ public class Employee extends Comparator implements Comparable<Employee> {
         }
         return -1;
     }
-
-
 
 
 }

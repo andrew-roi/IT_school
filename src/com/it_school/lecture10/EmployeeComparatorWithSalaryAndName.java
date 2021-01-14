@@ -1,7 +1,11 @@
 package com.it_school.lecture10;
 
+import java.util.Comparator;
+
 //comparing two Employees using  value of salary and names
-public class Comparator {
+public class EmployeeComparatorWithSalaryAndName implements Comparator<Employee> {
+
+    @Override
     public int compare(Employee o1, Employee o2) {
         int k;
         int i;
@@ -14,6 +18,5 @@ public class Comparator {
             i = -1;
         }
         return Integer.compare(k, i);
-
     }
 }
