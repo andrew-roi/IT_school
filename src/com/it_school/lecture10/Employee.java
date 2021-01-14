@@ -1,9 +1,7 @@
 package com.it_school.lecture10;
 
 
-import java.util.Comparator;
-
-public class Employee implements Comparable<Employee>, Comparator<Employee> {
+public class Employee extends Comparator implements Comparable<Employee> {
     private static int classCounterID;
     private int id;
     private double salary;
@@ -62,18 +60,11 @@ public class Employee implements Comparable<Employee>, Comparator<Employee> {
             return 1;
         } else if (this.id == o.id) {
             return 0;
-        } else return -1;
-    }
-
-    @Override
-    public int compare(Employee o1, Employee o2) {
-        if (o1.getSalary() >= o2.getSalary()) {
-            if (o1.getName().equals(o2.getName())) {
-                return o1.getName().compareTo(o2.getName());
-            }
         }
         return -1;
     }
+
+
 
 
 }
