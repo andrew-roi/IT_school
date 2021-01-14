@@ -21,10 +21,10 @@ public class Main {
     }
 
     public static void comparingLastCharsInStrings(String s1, String s2) {
-        String first = s1.substring(s1.length() - 1);
-        String second = s2.substring(s1.length() - 1);
-        if (first.equals(second)) {
-            throw new IllegalArgumentException(first);
+        char first = s1.charAt(s1.length() - 1);
+        char second = s2.charAt(s2.length()-1);
+        if (first == second) {
+            throw new IllegalArgumentException(String.valueOf(first));
         }
     }
 
