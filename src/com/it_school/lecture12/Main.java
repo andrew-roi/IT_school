@@ -2,6 +2,7 @@ package com.it_school.lecture12;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 
 public class Main {
@@ -22,12 +23,9 @@ public class Main {
 
         report.rows = rows;
 
-        for (int j = 0; j < rows.size(); j++) {
-
-            Row o = report.rows.get(j);
+        IntStream.range(0, rows.size()).mapToObj(j -> report.rows.get(j)).forEach(o -> {
             System.out.print(o.cells[0] + " " + o.cells[1] + " " + o.cells[2]);
             System.out.println();
-
-        }
+        });
     }
 }
