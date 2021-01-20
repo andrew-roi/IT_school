@@ -16,15 +16,17 @@ public class Reader implements Runnable {
     @Override
     public void run() {
         try {
-            Thread.sleep(1_000);
-            if (!list.isEmpty()) {
+            for (int i = 0; i < Integer.MAX_VALUE; i++) {
+                Thread.sleep(1_000);
                 System.out.println(list);
                 list.clear();
-            }else {
-                LocalDate date = LocalDate.now();
-                System.out.println("For " + date + " the list is empty");
-            }
 
+
+                if (list.isEmpty()) {
+                    LocalDate date = LocalDate.now();
+                    System.out.println("For " + date + " the list is empty");
+                }
+            }
 
 
         } catch (InterruptedException ex) {

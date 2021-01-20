@@ -14,9 +14,11 @@ public class Writer implements Runnable {
     @Override
     public void run() {
         try {
+            for (int i = 0; i < Integer.MAX_VALUE; i++) {
 
-            list.add(new Random().nextInt(100));
-            Thread.sleep(2_500);
+                Thread.sleep(2_500);
+                list.add(new Random().nextInt(100));
+            }
 
 
         } catch (InterruptedException ex) {
