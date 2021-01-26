@@ -11,6 +11,10 @@ public class Report {
         this.rows = rows;
     }
 
-   public List<Row> rows;
+    public List<Row> rows;
+
+    Report() {
+
+    }
 
 }
