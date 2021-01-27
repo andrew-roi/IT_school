@@ -1,8 +1,9 @@
 package com.it_school.lecture15;
 
-public class Customer extends Order {
+public class Customer {
     String location;
     String name;
+    private Order orders;
 
     void setOrder() {
 
@@ -10,5 +11,16 @@ public class Customer extends Order {
 
     void receiveOrder() {
 
+    }
+
+    Customer() {
+
+
+    }
+
+    Customer(String location, String name, Order orders) {
+        this.location = location;
+        this.name = name;
+        this.orders = orders;
     }
 }
