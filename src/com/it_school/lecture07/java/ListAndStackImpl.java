@@ -3,6 +3,7 @@ package com.it_school.lecture07.java;
 
 import java.util.Arrays;
 
+
 public class ListAndStackImpl implements IntList, IntStack {
     private final int[] values = new int[10]; // default array with capacity 10 for Stack and List implementation
     int nextIndex = 0; // increments while add or remove element
@@ -79,8 +80,20 @@ public class ListAndStackImpl implements IntList, IntStack {
     public void removeValue(int value) {
         for (int i = 0; i < values.length; i++) {
             if (values[i] == value) {
-                values[i] = 0;
 
+                int[] newArray = new int[values.length - 1];
+                int[] newArray2 = new int[values.length - 1];
+                int[] newArray3 = new int[values.length - 1];
+
+
+                System.arraycopy(values, 0, newArray, 0, i);
+                System.arraycopy(values, ++i, newArray2, i, i);
+                System.arraycopy(newArray, 0, newArray3, 0, i);
+                System.arraycopy(newArray2, i, newArray3, i, i);
+
+
+                System.out.println(Arrays.toString(newArray3));
+                break;
             }
         }
     }
@@ -90,16 +103,15 @@ public class ListAndStackImpl implements IntList, IntStack {
         for (int i = 0; i < values.length; i++) {
             if (i == index) {
 
-                int [] newArray = new int[values.length-1];
-                int [] newArray2 = new int[values.length-1];
-                int [] newArray3 = new int[values.length-1];
+                int[] newArray = new int[values.length - 1];
+                int[] newArray2 = new int[values.length - 1];
+                int[] newArray3 = new int[values.length - 1];
 
 
-                System.arraycopy(values,0,newArray,0,i);
-                System.arraycopy(values,++i,newArray2,i,i);
-                System.arraycopy(newArray,0,newArray3,0,i);
-                System.arraycopy(newArray2,i,newArray3,i,i);
-
+                System.arraycopy(values, 0, newArray, 0, i);
+                System.arraycopy(values, ++i, newArray2, i, i);
+                System.arraycopy(newArray, 0, newArray3, 0, i);
+                System.arraycopy(newArray2, i, newArray3, i, i);
 
                 System.out.println(Arrays.toString(newArray3));
                 break;
@@ -124,6 +136,11 @@ public class ListAndStackImpl implements IntList, IntStack {
         return arr;
     }
 
+    @Override
+    public boolean isEmpty() {
+        return values.length == 0;
+    }
+
 
     @Override
     public void push(int value) {
@@ -131,8 +148,12 @@ public class ListAndStackImpl implements IntList, IntStack {
     }
 
     @Override
-    public int pop() {
+    public int pop()throws ArrayIndexOutOfBoundsException {
+        try{
         nextIndex--;
+        }catch (ArrayIndexOutOfBoundsException ex){
+            System.out.println(ex.getMessage());
+        }
         return values[nextIndex];
     }
 

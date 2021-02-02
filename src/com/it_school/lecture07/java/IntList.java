@@ -39,4 +39,5 @@ public interface IntList {
     IntList subList(int fromIndex, int toIndex);
 
     int[] toArray();
+    boolean isEmpty();
 }

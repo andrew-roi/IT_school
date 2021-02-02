@@ -2,6 +2,7 @@ package com.it_school.lecture07.java;
 
 import java.util.Arrays;
 
+
 public class Main {
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 5, 6, 7};
@@ -23,10 +24,12 @@ public class Main {
         System.out.println(Arrays.toString(listAndStack.toArray()));// check the insert into array
         System.out.println(listAndStack.contains(7));
         listAndStack.removeByIndex(1);
+        listAndStack.removeValue(10);
         System.out.println(Arrays.toString(listAndStack.toArray()));
         System.out.println(Arrays.toString(listAndStack.subList(0, 3).toArray()));
         System.out.println(listAndStack.getIndexByValue(0));
         System.out.println(listAndStack.getByIndex(3));
+        System.out.println(listAndStack.isEmpty());
 
         System.out.println("=====================");
 
