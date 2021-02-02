@@ -1,4 +1,4 @@
-package com.it_school.lecture07;
+package com.it_school.lecture07.java;
 
 public interface IntStack {
 

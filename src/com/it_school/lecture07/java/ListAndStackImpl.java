@@ -1,5 +1,7 @@
-package com.it_school.lecture07;
+package com.it_school.lecture07.java;
 
+
+import java.util.Arrays;
 
 public class ListAndStackImpl implements IntList, IntStack {
     private final int[] values = new int[10]; // default array with capacity 10 for Stack and List implementation
@@ -87,7 +89,19 @@ public class ListAndStackImpl implements IntList, IntStack {
     public void removeByIndex(int index) {
         for (int i = 0; i < values.length; i++) {
             if (i == index) {
-                values[i] = 0;
+
+                int [] newArray = new int[values.length-1];
+                int [] newArray2 = new int[values.length-1];
+                int [] newArray3 = new int[values.length-1];
+
+
+                System.arraycopy(values,0,newArray,0,i);
+                System.arraycopy(values,++i,newArray2,i,i);
+                System.arraycopy(newArray,0,newArray3,0,i);
+                System.arraycopy(newArray2,i,newArray3,i,i);
+
+
+                System.out.println(Arrays.toString(newArray3));
                 break;
             }
 
