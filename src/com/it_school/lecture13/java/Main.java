@@ -1,4 +1,4 @@
-package com.it_school.lecture13;
+package com.it_school.lecture13.java;
 
 /**
  * Use Java v.15
@@ -44,7 +44,7 @@ public class Main {
             System.out.println(LocalDateTime.parse(date, formatter));
 
         } catch (DateTimeParseException | IllegalArgumentException ex) {
-            System.out.println(ex.getMessage() + "!" + "\nМиша, всё хуйня, переделывай.");
+            System.out.println(ex.getMessage() + "!" + "\nМиша, всё фигня, переделывай.");
         }
     }
 
