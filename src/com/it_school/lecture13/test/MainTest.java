@@ -1,52 +1,49 @@
 package com.it_school.lecture13.test;
 
+import com.it_school.lecture13.java.Main;
 import org.junit.Test;
-
-
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.Locale;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 
 public class MainTest {
 
-    @Test
-    public  void lectureDurationTest() {
-        Duration duration = Duration.between(LocalDateTime.of(2021, Month.JANUARY, 18, 20, 0),
-                LocalDateTime.of(2021, Month.JANUARY, 18, 22, 0));
-        System.out.println("Lecture duration : " + duration.toMinutes() + " minute(s)" + " or " + duration.toSeconds() + " seconds");
 
+    private Main main;
+
+    @BeforeEach
+    public void init() {
+        main = new Main();
     }
 
     @Test
-    public  void timeBetweenLecturesTest() {
-        LocalDateTime monday = LocalDateTime.of(2021, Month.JANUARY, 18, 20, 0);
-        LocalDateTime thursday = LocalDateTime.of(2021, Month.JANUARY, 21, 22, 0);
-        Duration duration = Duration.between(monday, thursday);
-        System.out.println("Time between lectures is: " + duration.toDays() + " days " + " or " + duration.toHours() + " hour(s) " + " or  " +
-                duration.toMinutes() + " minute(s) " + " or " + duration.toSeconds() + " seconds ");
+    public void testValidReturnOfFormatting() {
+        String actualResult = Main.formattingDate();
+        String expectedResult = "19:32 2021/01/29";
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 
     @Test
-    public  void parsingDateAndTimeTest() throws DateTimeParseException, IllegalArgumentException {
-        var date = "1999/Jun/18 07:34:55 PM";
-
-        try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/LLL/dd hh:mm:ss a", Locale.US);
-            System.out.println(LocalDateTime.parse(date, formatter));
-
-        } catch (DateTimeParseException | IllegalArgumentException ex) {
-            System.out.println(ex.getMessage() + "!" + "\nМиша, всё фигня, переделывай.");
-        }
+    public void testValidReturnOfParsing() {
+        String actualResult = Main.parsingDateAndTime().toString();
+        String expectedResult = "1999-06-18T19:34:55";
+        Assertions.assertEquals(expectedResult, actualResult);
     }
+
     @Test
-    public void formattingDateTest() {
-        System.out.println(LocalDateTime.of(1999, Month.JULY, 18, 7, 10, 55).
-                format(DateTimeFormatter.ofPattern("hh:mm yyyy/dd/MM ")));
+    public void testValidReturnOfLessonDuration() {
+        String actualResult = Main.lectureDuration();
+        String expectedResult = "120 7200";
+        Assertions.assertEquals(expectedResult, actualResult);
+    }
 
-
+    @Test
+    public void testValidReturnOfDuration() {
+        String actualResult = Main.timeBetweenLectures();
+        String expectedResult = "74 4440 266400";
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 }
+
+
+
 
