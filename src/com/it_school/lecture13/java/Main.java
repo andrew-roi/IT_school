@@ -24,8 +24,8 @@ public class Main {
     public static String lectureDuration() {
         Duration duration = Duration.between(LocalDateTime.of(2021, Month.JANUARY, 18, 20, 0),
                 LocalDateTime.of(2021, Month.JANUARY, 18, 22, 0));
-        System.out.println("Lecture duration : " + duration.toMinutes() + " minute(s)" + " or " + duration.toSeconds() + " seconds");
-        return duration.toString();
+        //System.out.println("Lecture duration : " + duration.toMinutes() + " minute(s)" + " or " + duration.toSeconds() + " seconds");
+        return "Lecture duration : " + duration.toMinutes() + " minute(s)" + " or " + duration.toSeconds() + " seconds";
     }
 
     public static String timeBetweenLectures() {
@@ -34,7 +34,7 @@ public class Main {
         Duration duration = Duration.between(monday, thursday);
         System.out.println("Time between lectures is: " + duration.toDays() + " days " + " or " + duration.toHours() + " hour(s) " + " or  " +
                 duration.toMinutes() + " minute(s) " + " or " + duration.toSeconds() + " seconds ");
-        return duration.toString();
+        return "Time between lectures is: " + duration.toDays() + " days" + " or " + duration.toHours() + " hour(s)" + " or " +duration.toMinutes() + " minute(s)" + " or " + duration.toSeconds() + " seconds";
     }
 
     public static LocalDateTime parsingDateAndTime() throws DateTimeParseException, IllegalArgumentException {
