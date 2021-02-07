@@ -1,4 +1,4 @@
-package com.it_school.lecture07.java;
+package com.it_school.lecture07;
 
 
 import java.util.Arrays;
@@ -16,10 +16,8 @@ public class ListAndStackImpl implements IntList, IntStack {
 
     @Override
     public void insert(int index, int value) {
-        if (values.length - index + 1 >= 0) {
-            System.arraycopy(values, index + 1 + 1, values, index + 1, values.length - index + 1);
-        }
-        values[index] = value;
+        nextIndex = index;
+        values[nextIndex] = value;
     }
 
     @Override
@@ -140,7 +138,7 @@ public class ListAndStackImpl implements IntList, IntStack {
 
     @Override
     public boolean isEmpty() {
-        return values.length == 0;
+        return nextIndex == 0;
     }
 
 

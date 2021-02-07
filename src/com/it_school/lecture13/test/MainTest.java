@@ -3,17 +3,9 @@ package com.it_school.lecture13.test;
 import com.it_school.lecture13.java.Main;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 
 public class MainTest {
 
-
-    private Main main;
-
-    @BeforeEach
-    public void init() {
-        main = new Main();
-    }
 
     @Test
     public void testValidationReturnOfFormatting() {
