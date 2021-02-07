@@ -17,7 +17,7 @@ public class Main {
         /*
         check the methods of list implementation
          */
-
+        System.out.println(listAndStack.size());
         System.out.println(listAndStack.getByIndex(21)); // wrong index caught an exception
         System.out.println(listAndStack.capacity());//capacity of array
         System.out.println(listAndStack.size());//actual elements count in array

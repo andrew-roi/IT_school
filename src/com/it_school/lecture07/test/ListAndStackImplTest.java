@@ -1,90 +1,93 @@
 package com.it_school.lecture07.test;
 
+
+
 import com.it_school.lecture07.java.IntList;
 import com.it_school.lecture07.java.ListAndStackImpl;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Arrays;
 
 public class ListAndStackImplTest {
-    private final int[] values = new int[10]; // default array with capacity 10 for Stack and List implementation
-    int nextIndex = 0; // increments while add or remove element
+
+   private ListAndStackImpl listAndStackImp;
+
+
+
+ @BeforeEach
+ public void init(){
+     listAndStackImp = new ListAndStackImpl();
+ }
 
     @Test
-    public void add() {
-        values[nextIndex] = 1;
-        nextIndex++;
-        System.out.println(Arrays.toString(values));
+    public void hasEmpty() {
+        int actualSize = listAndStackImp.size();
+        int expectedSize = 0;
+        Assertions.assertEquals(actualSize, expectedSize);
     }
 
     @Test
-    public void removeValue() {
-        for (int i = 0; i < values.length; i++) {
-            if (values[i] == 10) {
+    public void isIndexCorrect() {
+        listAndStackImp.add(1);
+        int actualIndex = listAndStackImp.getIndexByValue(1);
+        int expectedIndex = 0;
+        Assertions.assertEquals(actualIndex, expectedIndex);
+    }
 
-                int[] newArray = new int[values.length - 1];
-                int[] newArray2 = new int[values.length - 1];
-                int[] newArray3 = new int[values.length - 1];
-
-                System.arraycopy(values, 0, newArray, 0, i);
-                System.arraycopy(values, ++i, newArray2, i, i);
-                System.arraycopy(newArray, 0, newArray3, 0, i);
-                System.arraycopy(newArray2, i, newArray3, i, i);
-
-                System.out.println(Arrays.toString(newArray3));
-                break;
-            }
+    @Test
+    public void isIndexCorrectAfterDelete() {
+        for (int i = 1; i <= 5; i++) {
+            listAndStackImp.add(i);
         }
+        listAndStackImp.removeValue(3);
+        int actualIndex = listAndStackImp.getIndexByValue(4);
+        int expectedIndex = 3;
+        Assertions.assertEquals(expectedIndex, actualIndex);
     }
 
     @Test
-    public void getByIndex() throws ArrayIndexOutOfBoundsException, IllegalArgumentException {
+    public void isCorrectException() throws ArrayIndexOutOfBoundsException {
+        boolean actualResult = false;
         try {
-            System.out.println(values[nextIndex]);
-        } catch (ArrayIndexOutOfBoundsException boundsException) {
-            System.out.print("No such index in array: ");
-
-        } catch (IllegalArgumentException illegalException) {
-            System.out.println("Not a number: ");
-
+            listAndStackImp.getByIndex(10);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            actualResult = true;
         }
+        Assertions.assertTrue(actualResult);
     }
 
     @Test
-    public void isEmpty(){
-        System.out.println(values.length == 0);
-    }
-
-    @Test
-    public void subList() {
-        IntList intList = new ListAndStackImpl();
-        for (int i = 0; i < 3; i++) {
-            intList.add(values[i]);
+    public void isReturnList() {
+        for (int i = 5; i >= 0; i--) {
+            listAndStackImp.add(i);
         }
-        System.out.println(intList.toString());
+        IntList list = listAndStackImp.subList(0, 2);
+        int[] actualList = list.toArray();
+        System.out.println(Arrays.toString(actualList));
+        int[] expectedList = {5, 4, 0, 0, 0, 0, 0, 0, 0, 0};
+        Assertions.assertTrue(Arrays.equals(expectedList, actualList));
     }
 
     @Test
-    public void pop()throws ArrayIndexOutOfBoundsException {
-        try{
-
-            nextIndex--;
-            System.out.println(values[nextIndex]);
-        }catch (ArrayIndexOutOfBoundsException ex){
-            System.out.println(ex.getMessage());
+    public void isDeleteLastIndex() {
+        for (int i = 5; i >= 0; i--) {
+            listAndStackImp.add(i);
         }
-    }
-    @Test
-    public void peek() {
-        System.out.println(values[nextIndex]);
+        int actualResult = listAndStackImp.pop();
+        int expectedResult = 0;
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 
     @Test
-    public void push() {
-        values[nextIndex] = 3;
-        nextIndex++;
-        values[nextIndex] = 4;
-        nextIndex++;
-        System.out.println(Arrays.toString(values));
+    public void isAddInTheEnd() {
+        for (int i = 5; i >= 0; i--) {
+            listAndStackImp.add(i);
+        }
+        listAndStackImp.push(5);
+        int expectedResult = 5;
+        int actualResult = listAndStackImp.getByIndex(listAndStackImp.size() - 1);
+        Assertions.assertEquals(expectedResult, actualResult);
     }
 }

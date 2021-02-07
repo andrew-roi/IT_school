@@ -16,8 +16,10 @@ public class ListAndStackImpl implements IntList, IntStack {
 
     @Override
     public void insert(int index, int value) {
-        nextIndex = index;
-        values[nextIndex] = value;
+        if (values.length - index + 1 >= 0) {
+            System.arraycopy(values, index + 1 + 1, values, index + 1, values.length - index + 1);
+        }
+        values[index] = value;
     }
 
     @Override
