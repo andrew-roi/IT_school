@@ -1,9 +1,9 @@
 package com.it_school.lecture18.task1;
 
-public class MyArray2 implements Runnable {
+public class MyArray3 implements Runnable {
     String[] array;
 
-    MyArray2(String[] array) {
+    MyArray3(String[] array) {
         this.array = array;
     }
 
@@ -11,19 +11,19 @@ public class MyArray2 implements Runnable {
     public void run() {
         try {
             long start = System.currentTimeMillis();
-            for (int index = 0; index < 5_000_000; index++) {
+            for (int index = 5_000_000; index < 10_000_000; index++) {
                 if (index % 3 == 0 && index % 5 == 0) {
                     array[index] = "FizzBuzz";
-                    System.out.println(array[index]);
+                    // System.out.println(array[index]);
                 } else if (index % 5 == 0) {
                     array[index] = "Buzz";
-                    System.out.println(array[index]);
+                    //  System.out.println(array[index]);
                 } else if (index % 3 == 0) {
                     array[index] = "Fizz";
-                    System.out.println(array[index]);
+                    // System.out.println(array[index]);
                 } else {
                     array[index] = String.valueOf(index);
-                    System.out.println(array[index]);
+                    //  System.out.println(array[index]);
                 }
 
 

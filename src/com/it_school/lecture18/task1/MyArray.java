@@ -11,7 +11,7 @@ public class MyArray implements Runnable {
     public void run() {
         try {
             long start = System.currentTimeMillis();
-            for (int index = 0; index < 5_000_000; index++) {
+            for (int index = 0; index < array.length; index++) {
                 if (index % 3 == 0 && index % 5 == 0) {
                     array[index] = "FizzBuzz";
                     System.out.println(array[index]);
