@@ -1,50 +1,67 @@
 package com.it_school.lecture18.task1;
 
-public class MyArray implements Runnable {
-    private static  volatile String[] classArray;
-    private final int minIndex;
-    private  int maxIndex;
 
-    MyArray(String[] array, int minIndex) {
-        classArray = array;
-        this.minIndex = minIndex;
-        this.maxIndex = array.length;
-    }
+class MyArray implements Runnable {
+    private int[][] array;
+    private final int threadCount;
+    private final int elemCount;
 
-    MyArray(String[] array, int minIndex, int maxIndex){
-        classArray = array;
-        this.minIndex = minIndex;
-        if (maxIndex < classArray.length){
-            this.maxIndex = maxIndex;
-        }
+    MyArray(int countOfElements, int countOfThreads) {
+        array = new int[countOfElements][countOfElements];
+        threadCount = countOfThreads;
+        this.elemCount = countOfElements;
     }
 
     @Override
     public void run() {
+        Thread[] threads = new Thread[threadCount];
         long start = System.currentTimeMillis();
-        try {
-            for (int index = minIndex; index < classArray.length; index++) {
-                if (index % 3 == 0 && index % 5 == 0) {
-                    classArray[index] = "FizzBuzz";
-
-                } else if (index % 5 == 0) {
-                    classArray[index] = "Buzz";
-
-                } else if (index % 3 == 0) {
-                    classArray[index] = "Fizz";
-
-                } else {
-                    classArray[index] = String.valueOf(index);
-
-                }
-
+        for (int i = 0; i < threadCount; i++) {
+            threads[i] = new Thread(new Iter(threadCount, i, elemCount, array));
+            threads[i].start();
+        }
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                System.exit(1);
             }
+        }
+        long end = System.currentTimeMillis();
+        long workTime = end - start;
+        for (int[] ints : array) {
+            for (int anInt : ints) {
+                if (anInt != (int) Math.pow(12, 4))
+                    throw new RuntimeException();
+            }
+        }
+        System.out.println(threadCount + " thread(s) fill  of " + array[0].length * array[0].length / 1_000_000 +
+                " " +
+                "mln elements array in " + (workTime / 1000.) + " sec");
+    }
+}
 
-            //code for calculating method working time
+class Iter implements Runnable {
+    private final int step;
+    private final int startValue;
+    private final int elemCount;
+    volatile private int[][] arrToFill;
 
-            long end = System.currentTimeMillis();
-            long workTime = end - start;
-            System.out.println("Thread(s) fill  of " + classArray.length + " mln elements array in " + (workTime / 1000.) + " sec");
+    public Iter(int step, int startValue, int elemCount, int[][] arrToFill) {
+        this.step = step;
+        this.startValue = startValue;
+        this.elemCount = elemCount;
+        this.arrToFill = arrToFill;
+    }
+
+    public void run() {
+        try {
+            for (int i = startValue; i < elemCount; i += step) {
+                for (int j = 0; j < elemCount; j++) {
+                    arrToFill[i][j] = (int) Math.pow(12, 4);
+                }
+            }
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
