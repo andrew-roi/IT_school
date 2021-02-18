@@ -18,7 +18,7 @@ public class Main {
         System.out.println(supplier.get());
 
         Stream.generate(supplier)
-                .map(x -> x = (int) Math.pow(x, 3))
+                .map(x -> Math.pow(x, 3))
                 .filter(k -> k > 100)
                 .limit(100)
                 .forEach(System.out::println);
