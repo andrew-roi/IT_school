@@ -1,5 +1,6 @@
 package com.it_school.lecture02;
 
+import java.util.ArrayList;
 /**
  * Написать иерархию классов, во главе которой находится интерфейс Elevator (лифт). Необходимые реализации:
  * <p>
@@ -38,7 +39,6 @@ package com.it_school.lecture02;
  * UPDATE: реализация метода moveToFloor в каждом лифте должны отличаться (чем - на ваше усмотрение)
  */
 
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
