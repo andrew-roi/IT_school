@@ -9,6 +9,22 @@ import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/**
+ * 1. С помощью Stream API отфильтровать только четные числа и сформировать новый список из квадратов их значений.
+ *
+ * Input: [1, 2, 3, 4, 5]
+ *
+ * Output: [4, 16]
+ * 2. Написать функцию-Predicat.
+ * Предикат должен принимать коллекцию строк и проверять содержится ли в ней больше 2 строк,
+ * которые начинаются с заглавной буквы (upper case). Эту проверку также нужно сделать с помощью Stream API.
+ * Используйте функцию count() из Stream
+ * 3. Написать энам MathOperations со значениями PLUS, MINUS, DIVIDE, MULTIPLY.
+ * Составить карту функций, ключи - значения энама. Значения - функции (BiFunction), которые выполняют соответствующие действия.
+ * 4*. Написать интерфейс TriFunction, который представляет собой функцию,
+ * которая принимает 3 параметра и имеет возращаемое значение.
+ */
+
 public class Main {
     public static void main(String[] args) {
         filteringWithStream();
@@ -45,10 +61,10 @@ public class Main {
     public static void mathOperationsEnum() {
         Map<MathOperations, BiFunction<Integer, Integer, Integer>> map = new HashMap<>();
 
-        MathOperations Plus = MathOperations.Plus;
-        MathOperations Minus = MathOperations.Minus;
-        MathOperations Divide = MathOperations.Divide;
-        MathOperations Multiply = MathOperations.Multiply;
+        MathOperations Plus = MathOperations.PLUS;
+        MathOperations Minus = MathOperations.MINUS;
+        MathOperations Divide = MathOperations.DIVIDE;
+        MathOperations Multiply = MathOperations.MULTIPLY;
 
         BiFunction<Integer, Integer, Integer> plusFunction = (a,b ) -> a +b;
         BiFunction<Integer, Integer, Integer> minusFunction = (a, b) -> a - b;
