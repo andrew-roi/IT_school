@@ -1,6 +1,6 @@
 package com.it_school.lecture02;
 
-public class ServiceElevator extends AbstractElevator implements Elevator {
+public class ServiceElevator extends AbstractElevator {
 
     ServiceElevator(int floor, int weight) {
 
@@ -23,11 +23,6 @@ public class ServiceElevator extends AbstractElevator implements Elevator {
         return maxWeight;
     }
 
-    @Override
-    public double getSpeed() {
-
-        return 5.0;
-    }
 
     @Override
     public boolean moveToFloor(int floor, int weight) {

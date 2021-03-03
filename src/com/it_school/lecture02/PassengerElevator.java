@@ -1,6 +1,6 @@
 package com.it_school.lecture02;
 
-public class PassengerElevator extends AbstractElevator implements Elevator {
+public class PassengerElevator extends AbstractElevator {
 
 
     PassengerElevator(int floor, int weight) {
@@ -22,10 +22,6 @@ public class PassengerElevator extends AbstractElevator implements Elevator {
         return maxWeight;
     }
 
-    @Override
-    public double getSpeed() {
-        return speed;
-    }
 
     @Override
     public boolean moveToFloor(int floor, int weight) {

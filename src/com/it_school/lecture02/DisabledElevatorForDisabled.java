@@ -1,6 +1,6 @@
 package com.it_school.lecture02;
 
-public class DisabledElevatorForDisabled extends AbstractElevator implements Elevator {
+public class DisabledElevatorForDisabled extends AbstractElevator {
 
     DisabledElevatorForDisabled(int floor, int weight) {
 
@@ -20,10 +20,6 @@ public class DisabledElevatorForDisabled extends AbstractElevator implements Ele
         return maxWeight;
     }
 
-    @Override
-    public double getSpeed() {
-        return speed;
-    }
 
     @Override
     public boolean moveToFloor(int floor, int weight) {
