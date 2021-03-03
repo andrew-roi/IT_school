@@ -2,6 +2,55 @@ package com.it_school.lecture07;
 
 import java.util.Arrays;
 
+/**
+ * 1. Напечатать в консоль элементы массива с помощью рекурсии.
+ * 2. Написать класс, который реализует все интерфейсы ниже:
+ * interface IntStack {
+ * void push(int value);
+ *
+ * int pop(); // remove and get value on top of Stack
+ *
+ * int peek(); // get value on top of Stack
+ * public interface IntList {
+ *
+ * void add(int i);
+ * <
+ *
+ * Insert element by index. All elements from the right will be shifted to right
+ *
+ * void insert(int index,int value);
+ *
+ * Overwrite value by index
+ *
+ * void set(int index,int value);
+ *
+ * @return actual number of elements in the list
+ *
+ * int size();
+ *
+ *
+ * *@return how many elements list can contain
+ *
+ * int capacity();
+ *
+ * int getByIndex(int index);
+ *
+ * @return index of first value occurrence.Return null if no value in the list.
+ * <p>
+ * Integer getIndexByValue(int value);
+ *
+ * boolean contains(int value);
+ *
+ * void removeValue(int value);
+ *
+ * void removeByIndex(int index);
+ *
+ * IntList subList(int fromIndex,int toIndex);
+ *
+ * int[]toArray();
+ *
+ * }
+ */
 
 public class Main {
     public static void main(String[] args) {
