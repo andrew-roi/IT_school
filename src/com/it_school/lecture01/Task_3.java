@@ -1,6 +1,7 @@
 package com.it_school.lecture01;
 
 
+import java.util.Arrays;
 
 /**
  * Написать метод, который принимает массив String и возвращает String,
@@ -12,12 +13,14 @@ package com.it_school.lecture01;
  * output: “ab|cd|ef”
  */
 public class Task_3 {
-    public static void main(String[] args) {
-        System.out.println(commonString(new String[]{"ab"}));
+    public static void main(String[] args){
+        System.out.println(commonString(new String[]{"a"}));
 
     }
 
     public static String commonString(String[] s) {
-        return String.join("|",s);
+
+        return String.join("|", s);
     }
+
 }
