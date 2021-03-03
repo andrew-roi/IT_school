@@ -4,6 +4,30 @@ package com.it_school.lecture06;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * 1. Написать регулярное выражение для формата даты YYYY/MM/dd HH:mm
+ *
+ * Примеры
+ *
+ * 2020/12/23 05:30 - valid
+ *
+ * 2020/13/77 99:99 - invalid
+ *
+ * asdasdasd - invalid
+ *
+ *
+ *
+ * 2. Написать регулярное выражение, которое будет искать домен почтового ящика и возвращать его
+ *
+ * Примеры
+ *
+ * abc@mail.com -> main.com
+ *
+ * zzz@ccc.v -> ccc.y
+ * 4. Написать enum Сolor, в нем должны быть объекты RED, GREEN, BLUE, WHITE и BLACK.
+ *
+ * У каждого объекта должны быть поле hex
+ */
 
 public class Main {
     public static void main(String[] args) {
