@@ -6,7 +6,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+/**
+ * 1. Добавить в карту Map<String, Integer> 10 записей. Поменять местами ключи и значения (ключи становятся значениями, значения становятся ключами).
 
+ * 2. Пользователь вводит с клавиатуры любые строки. Нужно посчитать сколько раз какая строка была введена. Вывести 2 строки, которые вводились чаще остальных.
+ */
 public class Main {
     public static void main(String[] args) throws IOException {
         changeKeyWithValuesInMap();
