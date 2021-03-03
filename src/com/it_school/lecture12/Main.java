@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
+/**
+ * Нужно исправить 2 бага - 1 compile-time баг и 1 run-time баг. Также проведите рефакторинг.
+ * Рефакторинг - изменения кода, которые делают его читабельнее и
+ * проще для дальнейшей поддержки/развития, не изменяя изначальных функций кода.
+ */
 
 public class Main {
     public static void main(String[] args) {
