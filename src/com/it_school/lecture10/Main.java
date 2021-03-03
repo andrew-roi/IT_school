@@ -5,6 +5,25 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Взять Employee из ДЗ 3.
+
+ * 0. Написать generic-метод, который принимает список любых чисел (целых, дробных) и возвращает их сумму.
+ *
+ * Отличная инфа про generics из первоисточника:
+ *
+ * Input: List<Integer> [4 7 2]
+ *
+ * Output: 13
+ * Input: List<Double> [1.5, 6.0, 3.0]
+ *
+ * Output: 10.5
+
+ * 1. Класс Employee должен реализовывать интерфейс Comparable и сортировать сотрудников по id
+ * 2. Написать компаратор, который сравнивает сотрудников по зарплате
+ * 3. Написать компаратор, который сравнивает сотрудников по зарплате, если она одинаковая - то по имени.
+ * Создать список сотрудников (3-4 шт.) и продемонстрировать что сортировка работает правильно, т.е. вызвать Collections.sort(collection) и Collections.sort(collection, comparator)
+ */
 public class Main {
     public static void main(String[] args) {
         Employee e1 = new Employee("Vasiok", "Batman", 1150.);
